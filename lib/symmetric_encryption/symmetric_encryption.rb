@@ -345,7 +345,8 @@ module SymmetricEncryption
   #  environment:
   #    Which environments config to load. Usually: production, development, etc.
   def self.read_config(filename=nil, environment=nil)
-    raise "ARG:  #{environment} =>  #{Rails.env}"
+    binding.pry
+    raise "ARG:  #{environment} =>  #{Rails.env} -> #{ENV['SE_KEY1']}"
     config_filename = filename || File.join(Rails.root, "config", "symmetric-encryption.yml")
     config = YAML.load(ERB.new(File.new(config_filename).read).result)[environment || Rails.env]
 
