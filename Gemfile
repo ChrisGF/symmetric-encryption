@@ -17,3 +17,5 @@ gem 'highline'
 gem 'coercible'
 gem 'awesome_print'
 gem 'semantic_logger'
+gem "pry"
+gem "pry-debugger"

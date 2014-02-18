@@ -271,10 +271,10 @@ module SymmetricEncryption
   #
   # Existing key files will be renamed if present
   def self.generate_symmetric_key_files(filename=nil, environment=nil)
-    puts "Reading Config File: #{filename}  =>  ENV: #{environment}"
+    logger.info "Reading Config File: #{filename}  =>  ENV: #{environment}"
     config_filename = filename || File.join(Rails.root, "config", "symmetric-encryption.yml")
-    puts "Config File: #{config_filename}"
-    puts "Whole file: #{YAML.load(ERB.new(File.new(config_filename).read).result).inspect}"
+    logger.info "Config File: #{config_filename}"
+    logger.info "Whole file: #{YAML.load(ERB.new(File.new(config_filename).read).result).inspect}"
     
     config = YAML.load(ERB.new(File.new(config_filename).read).result)[environment || Rails.env]
 
@@ -345,6 +345,7 @@ module SymmetricEncryption
   #  environment:
   #    Which environments config to load. Usually: production, development, etc.
   def self.read_config(filename=nil, environment=nil)
+    puts "Environment: #{environment}"
     config_filename = filename || File.join(Rails.root, "config", "symmetric-encryption.yml")
     config = YAML.load(ERB.new(File.new(config_filename).read).result)[environment || Rails.env]
 
