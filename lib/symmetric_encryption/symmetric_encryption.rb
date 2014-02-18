@@ -4,6 +4,8 @@ require 'zlib'
 require 'yaml'
 require 'erb'
 
+require 'pry'
+
 # Encrypt using 256 Bit AES CBC symmetric key and initialization vector
 # The symmetric key is protected using the private key below and must
 # be distributed separately from the application
