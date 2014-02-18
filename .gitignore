@@ -1,7 +1,7 @@
 .DS_Store
 nbproject/*
-*.gem
 .idea/*
+*.gem
 Gemfile.lock
 test.rb
 *.sqlite3
