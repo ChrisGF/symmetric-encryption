@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.name        = 'symmetric-encryption'
   s.version     = SymmetricEncryption::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ['Reid Morrison']
+  s.authors     = ['Reid Morrison', 'Chris Schmitt']
   s.email       = ['reidmo@gmail.com']
   s.homepage    = 'https://github.com/reidmorrison/symmetric-encryption'
-  s.summary     = "Symmetric Encryption for Ruby, and Ruby on Rails"
+  s.summary     = "Symmetric Encryption for Ruby, and Ruby on Rails - DEBUG VERSION"
   s.description = "SymmetricEncryption supports encrypting ActiveRecord data, Mongoid data, passwords in configuration files, encrypting and decrypting of large files through streaming"
   s.files       = Dir["{lib,examples}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
   s.test_files  = Dir["test/**/*"]
