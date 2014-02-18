@@ -4,8 +4,6 @@ require 'zlib'
 require 'yaml'
 require 'erb'
 
-require 'pry'
-
 # Encrypt using 256 Bit AES CBC symmetric key and initialization vector
 # The symmetric key is protected using the private key below and must
 # be distributed separately from the application
@@ -273,11 +271,11 @@ module SymmetricEncryption
   #
   # Existing key files will be renamed if present
   def self.generate_symmetric_key_files(filename=nil, environment=nil)
-    logger.info "Reading Config File: #{filename}  =>  ENV: #{environment}"
+    STDOUT.write "Reading Config File: #{filename}  =>  ENV: #{environment}"
     config_filename = filename || File.join(Rails.root, "config", "symmetric-encryption.yml")
-    logger.info "Config File: #{config_filename}"
-    logger.info "Whole file: #{YAML.load(ERB.new(File.new(config_filename).read).result).inspect}"
-    
+    STDOUT.write "Config File: #{config_filename}"
+    STDOUT.write "ERB: #{ERB.new(File.new(config_filename).read).result}"
+    STDOUT.write "Whole file: #{YAML.load(ERB.new(File.new(config_filename).read).result).inspect}"
     config = YAML.load(ERB.new(File.new(config_filename).read).result)[environment || Rails.env]
 
     # RSA key to decrypt key files
